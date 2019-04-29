@@ -1,0 +1,170 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menu_Control.gd" type="Script" id=1]
+[ext_resource path="res://Option_Control.gd" type="Script" id=2]
+[ext_resource path="res://Map_Control.gd" type="Script" id=3]
+
+[node name="Main" type="Node"]
+
+[node name="Menu_Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="Menu_Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Label_Titulo" type="Label" parent="Menu_Control/Panel"]
+margin_left = 457.782
+margin_top = 113.327
+margin_right = 548.782
+margin_bottom = 144.327
+text = "Fucking Titulo
+"
+
+[node name="Button_Start" type="Button" parent="Menu_Control/Panel"]
+margin_left = 434.473
+margin_top = 249.733
+margin_right = 561.473
+margin_bottom = 303.733
+text = "Start"
+
+[node name="Button_Map" type="Button" parent="Menu_Control/Panel"]
+margin_left = 435.24
+margin_top = 344.774
+margin_right = 562.24
+margin_bottom = 407.774
+text = "Map"
+
+[node name="Button_Ships" type="Button" parent="Menu_Control/Panel"]
+margin_left = 433.48
+margin_top = 453.947
+margin_right = 560.48
+margin_bottom = 496.947
+text = "Ships"
+
+[node name="Button_Options" type="Button" parent="Menu_Control/Panel"]
+margin_left = 915.0
+margin_top = 34.0
+margin_right = 986.0
+margin_bottom = 75.0
+text = "Options"
+
+[node name="Option_Control" type="Control" parent="Menu_Control"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="Menu_Control/Option_Control"]
+margin_left = -2.38391
+margin_right = 1021.62
+margin_bottom = 600.0
+
+[node name="Label_Settings" type="Label" parent="Menu_Control/Option_Control/Panel"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Fucking Settings
+"
+
+[node name="Button_Sound" type="Button" parent="Menu_Control/Option_Control/Panel"]
+margin_left = 249.938
+margin_top = 179.161
+margin_right = 404.938
+margin_bottom = 242.161
+text = "Sound"
+
+[node name="Label_Sound" type="Label" parent="Menu_Control/Option_Control/Panel/Button_Sound"]
+margin_left = 205.0
+margin_right = 519.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( -1302.55, 20.8392 )
+text = "Sound"
+
+[node name="Button_Music" type="Button" parent="Menu_Control/Option_Control/Panel"]
+margin_left = 252.733
+margin_top = 271.393
+margin_right = 407.733
+margin_bottom = 329.393
+text = "Music"
+
+[node name="Label_Music" type="Label" parent="Menu_Control/Option_Control/Panel/Button_Music"]
+margin_left = 197.437
+margin_top = -4.02704
+margin_right = 511.437
+margin_bottom = 61.973
+rect_pivot_offset = Vector2( -1302.55, 20.8392 )
+text = "Music"
+
+[node name="Button_Vibration" type="Button" parent="Menu_Control/Option_Control/Panel"]
+margin_left = 253.0
+margin_top = 358.0
+margin_right = 410.0
+margin_bottom = 411.0
+text = "Vibration"
+
+[node name="Label_Vibration" type="Label" parent="Menu_Control/Option_Control/Panel/Button_Vibration"]
+margin_left = 187.634
+margin_top = -4.81287
+margin_right = 501.634
+margin_bottom = 61.1871
+rect_pivot_offset = Vector2( -1302.55, 20.8392 )
+text = "Vibration
+"
+
+[node name="Button_Apply" type="Button" parent="Menu_Control/Option_Control/Panel"]
+margin_left = 262.553
+margin_top = 472.152
+margin_right = 379.553
+margin_bottom = 537.152
+text = "Apply"
+
+[node name="Button_Cancel" type="Button" parent="Menu_Control/Option_Control/Panel"]
+margin_left = 562.605
+margin_top = 474.4
+margin_right = 672.605
+margin_bottom = 539.4
+text = "Cancel"
+
+[node name="Map_Control" type="Control" parent="Menu_Control"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="Menu_Control/Map_Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Label_Panel" type="Label" parent="Menu_Control/Map_Control/Panel"]
+margin_left = 405.267
+margin_top = 35.7588
+margin_right = 550.267
+margin_bottom = 59.7588
+text = "Map"
+
+[node name="Button_Level_1" type="Button" parent="Menu_Control/Map_Control/Panel"]
+margin_left = 412.418
+margin_top = 190.714
+margin_right = 553.418
+margin_bottom = 231.714
+text = "Level !"
+
+[node name="Button_Back" type="Button" parent="Menu_Control/Map_Control/Panel"]
+margin_left = 153.207
+margin_top = 511.397
+margin_right = 253.207
+margin_bottom = 550.397
+text = "Back"
+
+[connection signal="pressed" from="Menu_Control/Panel/Button_Start" to="Menu_Control" method="_on_Button_Start_pressed"]
+[connection signal="pressed" from="Menu_Control/Panel/Button_Map" to="Menu_Control" method="_on_Button_Map_pressed"]
+[connection signal="pressed" from="Menu_Control/Panel/Button_Ships" to="Menu_Control" method="_on_Button_Ships_pressed"]
+[connection signal="pressed" from="Menu_Control/Panel/Button_Options" to="Menu_Control" method="_on_Button_Options_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Panel/Button_Sound" to="Menu_Control/Option_Control" method="_on_Button_Sound_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Panel/Button_Music" to="Menu_Control/Option_Control" method="_on_Button_Music_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Panel/Button_Vibration" to="Menu_Control/Option_Control" method="_on_Button_Vibration_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Panel/Button_Apply" to="Menu_Control/Option_Control" method="_on_Button_Apply_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Panel/Button_Cancel" to="Menu_Control/Option_Control" method="_on_Button_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Map_Control/Panel/Button_Back" to="Menu_Control/Map_Control" method="_on_Button_Back_pressed"]
