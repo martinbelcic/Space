@@ -12,15 +12,22 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_Button_Options_pressed():
-	get_node("Option_Control").show()
 
-func _on_Button_Ships_pressed():
-	get_node("Ship_Control").show()
-
-func _on_Button_Start_pressed():
-	get_node("Map_Control").show()
+func _on_Button_Keyboard_pressed():
+	self.hide()
 
 
-func _on_Button_Buy_pressed():
-	pass # Replace with function body.
+func _on_Button_Joystick_pressed():
+	self.hide()
+
+
+func _on_Button_Celular_pressed():
+	self.hide()
+
+
+func _on_Button_Apply_pressed():
+	self.hide()
+
+
+func _on_Button_Cancel_pressed():
+	self.hide()
