@@ -18,4 +18,7 @@ func _on_Button_Start_pressed():
 	get_node("Map_Control").show()
 
 func _on_Button_Buy_pressed():
-	pass # Replace with function body.
+	get_node("Panel").hide()
+
+func _on_Button_Level_1_pressed():
+	hide()
