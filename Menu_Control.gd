@@ -1,9 +1,5 @@
 extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -15,14 +11,14 @@ func _ready():
 func _on_Button_Options_pressed():
 	get_node("Option_Control").show()
 
-
 func _on_Button_Ships_pressed():
-	pass # Replace with function body.
-
-
-func _on_Button_Map_pressed():
-	get_node("Map_Control").show()
-
+	get_node("Ship_Control").show()
 
 func _on_Button_Start_pressed():
-	pass # Replace with function body.
+	get_node("Map_Control").show()
+
+func _on_Button_Buy_pressed():
+	get_node("Panel").hide()
+
+func _on_Button_Level_1_pressed():
+	hide()

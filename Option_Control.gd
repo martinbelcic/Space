@@ -31,3 +31,7 @@ func _on_Button_Music_pressed():
 
 func _on_Button_Sound_pressed():
 	pass # Replace with function body.
+
+
+func _on_Button_Controls_pressed():
+	get_node("Control_Control").show()
