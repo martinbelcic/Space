@@ -18,12 +18,15 @@ func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 		x = -sensitivity
 		canvas.play("MoveLeft")
-	if Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_right"):
 		x = sensitivity
-	if Input.is_action_pressed("ui_up"):
+		canvas.play("MoveRight")
+	elif Input.is_action_pressed("ui_up"):
 		y = sensitivity
-	if Input.is_action_pressed("ui_down"):	
+		#canvas.play("MoveUp")
+	elif Input.is_action_pressed("ui_down"):	
 		y = -sensitivity
+		#canvas.play("MoveDown")
 	ship.move_and_slide(Vector3(x,y,0))
 
 
