@@ -1,6 +1,6 @@
 extends Control
 
-var money
+#var money
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +21,4 @@ func _on_Button_Next_pressed():
 	pass
 
 func _on_Button_Previous_pressed():
-	pass
-
-func create_texture_ship(nombre):
 	pass
