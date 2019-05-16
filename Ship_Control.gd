@@ -22,3 +22,9 @@ func _on_Button_Next_pressed():
 
 func _on_Button_Previous_pressed():
 	pass
+
+func create_texture_ship(nombre):
+	pass
+
+func _on_Button_Ship_Apply_pressed():
+	hide()

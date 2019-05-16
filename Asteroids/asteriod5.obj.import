@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/asteriod5.obj-21fb75c3f47e339cd6d1fe9329dc0692.mesh"
+
+[deps]
+
+files=[ "res://.import/asteriod5.obj-21fb75c3f47e339cd6d1fe9329dc0692.mesh" ]
+
+source_file="res://Asteroids/asteriod5.obj"
+dest_files=[ "res://.import/asteriod5.obj-21fb75c3f47e339cd6d1fe9329dc0692.mesh", "res://.import/asteriod5.obj-21fb75c3f47e339cd6d1fe9329dc0692.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
