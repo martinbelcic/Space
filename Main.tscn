@@ -81,6 +81,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Main_Control" type="Control" parent="Menu_Control"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -410,6 +411,7 @@ margin_top = 300.0
 margin_right = 422.0
 margin_bottom = 516.0
 rect_scale = Vector2( 0.3, 0.3 )
+disabled = true
 icon = ExtResource( 28 )
 flat = true
 
@@ -549,10 +551,10 @@ margin_bottom = 600.0
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Music" to="Menu_Control/Option_Control" method="_on_Button_Music_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Vibration" to="Menu_Control/Option_Control" method="_on_Button_Vibration_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Controls" to="Menu_Control/Option_Control" method="_on_Button_Controls_pressed"]
-[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="Menu_Control/Option_Control" method="_on_Button_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="." method="_on_Button_Apply_pressed"]
-[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="Menu_Control/Option_Control" method="_on_Button_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="Menu_Control/Option_Control" method="_on_Button_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="." method="_on_Button_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="Menu_Control/Option_Control" method="_on_Button_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Keyboard" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Keyboard_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Joystick" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Joystick_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Celular" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Celular_pressed"]

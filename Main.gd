@@ -13,7 +13,8 @@ var peer
 var udp = PacketPeerUDP.new()
 var not_connected = false
 var naves = ["res://Ship_1.tscn","res://Ship_2.tscn","res://Ship_3.tscn"]
-var nave_actual = 0
+var pos_naves_actual = 0
+var path_nave_actual = "res://Ship_1.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -72,7 +73,7 @@ func register_player(id):
 remote func empezar(id):
 	if id == player:
 		level = load("res://Background_Level1.tscn").instance()
-		ship = load("res://Ship_1.tscn").instance()
+		ship = load(path_nave_actual).instance()
 		add_child(level)
 		level.add_child_viewport(ship)
 		server_instance.morir()
@@ -116,6 +117,7 @@ func _on_Button_Cancel_pressed():
 
 
 func _on_Button_Ship_Cancel_pressed():
+	mata_ship()
 	get_node("Menu_Control/Main_Control").show()
 
 
@@ -126,38 +128,47 @@ func _on_Button_Apply_pressed():
 func _on_Button_Map_Back_pressed():
 	get_node("Menu_Control/Main_Control").show()
 
-func sig_nave():
-	var path = naves[nave_actual]
-	if nave_actual == naves.size() -1:
-		get_node("Menu_Control/Ship_Control/Button_Next").disabled = true
-	else :
-		get_node("Menu_Control/Ship_Control/Button_Next").disabled = false
-	ship = load(path).instance()
-	if viewport_ships.get_child_count() > 0:
-		viewport_ships.get_children()[0].queue_free()
-	viewport_ships.add_child(ship)
-
-func ant_nave():
-	var path = naves[nave_actual]
-	if nave_actual == 0:
-		get_node("Menu_Control/Ship_Control/Button_Previous").disabled = true
-	else :
-		get_node("Menu_Control/Ship_Control/Button_Previous").disabled = false
-	ship = load(path).instance()
-	if viewport_ships.get_child_count() > 0:
-		viewport_ships.get_children()[0].queue_free()
-	viewport_ships.add_child(ship)
 
 func inicia_ships():
 	viewport_ships = get_node("Menu_Control/Ship_Control/Viewport")
 	viewport_ships.set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
 	get_node("Menu_Control/Ship_Control/Ship_Example").texture = viewport_ships.get_texture()
-	sig_nave()
+	carga_nave()
 
+func mata_ship():
+	viewport_ships.queue_free()
+
+func carga_nave():
+	path_nave_actual = naves[pos_naves_actual]
+	ship = load(path_nave_actual).instance()
+	if viewport_ships.get_child_count() > 0:
+		viewport_ships.get_children()[0].queue_free()
+	viewport_ships.add_child(ship)
+	
 func _on_Button_Next_pressed():
-	sig_nave()
+	pos_naves_actual += 1
+	get_node("Menu_Control/Ship_Control/Button_Previous").disabled = false
+	if pos_naves_actual == (naves.size() - 1):
+		get_node("Menu_Control/Ship_Control/Button_Next").disabled = true
+	elif pos_naves_actual > (naves.size() - 1):
+		pos_naves_actual -= 1
+	else :
+		get_node("Menu_Control/Ship_Control/Button_Next").disabled = false
+	carga_nave()
+
+func _on_Button_Previous_pressed():
+	pos_naves_actual -= 1
+	get_node("Menu_Control/Ship_Control/Button_Next").disabled = false
+	if pos_naves_actual == 0:
+		get_node("Menu_Control/Ship_Control/Button_Previous").disabled = true
+	elif pos_naves_actual < 0:
+		pos_naves_actual += 1
+	else :
+		get_node("Menu_Control/Ship_Control/Button_Previous").disabled = false
+	carga_nave()
 
 func _on_Button_Ship_Apply_pressed():
+	mata_ship()
 	get_node("Menu_Control/Main_Control").show()
 
 
@@ -170,6 +181,3 @@ func _on_Button_Volver_pressed():
 	get_node("Menu_Control/Map_Control").show()
 	cerrar_todo()
 
-
-func _on_Button_Previous_pressed():
-	ant_nave()
