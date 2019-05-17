@@ -8,17 +8,3 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_Button_Options_pressed():
-	get_node("Option_Control").show()
-
-func _on_Button_Ships_pressed():
-	get_node("Ship_Control").show()
-
-func _on_Button_Start_pressed():
-	get_node("Map_Control").show()
-
-func _on_Button_Buy_pressed():
-	get_node("Panel").hide()
-
-func _on_Button_Level_1_pressed():
-	hide()

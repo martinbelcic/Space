@@ -25,3 +25,6 @@ func _on_Button_Previous_pressed():
 
 func create_texture_ship(nombre):
 	pass
+
+func _on_Button_Ship_Apply_pressed():
+	hide()
