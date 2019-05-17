@@ -6,7 +6,7 @@ extends Node
 var PORT = 4242
 onready var server_instance = get_node("Menu_Control/Server") 
 var ship
-var path_ship = "res://Ship.tscn"
+var path_ship = "res://Ship_1.tscn"
 var player
 var level
 var viewport_ships
@@ -134,7 +134,7 @@ func inicia_ships():
 	carga_nave()
 
 func mata_ship():
-	viewport_ships.queue_free()
+	viewport_ships.get_children()[0].queue_free()
 
 func carga_nave():
 	path_nave_actual = naves[pos_naves_actual]
