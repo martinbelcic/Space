@@ -4,8 +4,9 @@ extends Node
 # var a = 2
 # var b = "text" 
 var PORT = 4242
-var server_instance 
+onready var server_instance = get_node("Menu_Control/Server") 
 var ship
+var path_ship = "res://Ship.tscn"
 var player
 var level
 var viewport_ships
@@ -73,10 +74,8 @@ func register_player(id):
 remote func empezar(id):
 	if id == player:
 		level = load("res://Background_Level1.tscn").instance()
-		ship = load(path_nave_actual).instance()
 		add_child(level)
-		level.add_child_viewport(ship)
-		server_instance.morir()
+		level.set_ship(path_nave_actual)
 		get_node("Menu_Control").hide()
 
 
@@ -106,7 +105,6 @@ func _on_Button_Level_1_pressed():
 
 
 func show_server():
-	server_instance = get_node("Menu_Control/Server")
 	server_instance.show()
 	create_server()
 	not_connected = true
@@ -181,3 +179,21 @@ func _on_Button_Volver_pressed():
 	get_node("Menu_Control/Map_Control").show()
 	cerrar_todo()
 
+
+func _on_Button_Level_Aux_pressed():
+	level = load("res://Background_Level1.tscn").instance()
+	add_child(level)
+	# ship = load("res://Ship.tscn").instance()
+	# level.add_child_viewport(ship)
+	level.set_ship(path_ship)
+	# server_instance.morir()
+	get_node("Menu_Control").hide()
+
+
+func level_finished():
+	get_node("Menu_Control").show()
+	get_node("Menu_Control/Main_Control").hide()
+	get_node("Menu_Control/Map_Control").hide()
+	get_node("Menu_Control/Option_Control").hide()
+	get_node("Menu_Control/Ship_Control").hide()
+	show_server()
