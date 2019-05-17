@@ -6,17 +6,20 @@ extends Node
 var PORT = 4242
 onready var server_instance = get_node("Menu_Control/Server") 
 var ship
-var path_ship = "res://Ship.tscn"
+var path_ship = "res://Ship_1.tscn"
 var player
 var level
 var viewport_ships
 var peer
 var udp = PacketPeerUDP.new()
 var not_connected = false
+var naves = ["res://Ship_1.tscn","res://Ship_2.tscn","res://Ship_3.tscn"]
+var pos_naves_actual = 0
+var path_nave_actual = "res://Ship_1.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
 
 
 func _process(delta):
@@ -72,10 +75,7 @@ remote func empezar(id):
 	if id == player:
 		level = load("res://Background_Level1.tscn").instance()
 		add_child(level)
-		# ship = load("res://Ship.tscn").instance()
-		# level.add_child_viewport(ship)
-		level.set_ship(path_ship)
-		server_instance.morir()
+		level.set_ship(path_nave_actual)
 		get_node("Menu_Control").hide()
 
 
@@ -115,6 +115,7 @@ func _on_Button_Cancel_pressed():
 
 
 func _on_Button_Ship_Cancel_pressed():
+	mata_ship()
 	get_node("Menu_Control/Main_Control").show()
 
 
@@ -130,22 +131,48 @@ func inicia_ships():
 	viewport_ships = get_node("Menu_Control/Ship_Control/Viewport")
 	viewport_ships.set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
 	get_node("Menu_Control/Ship_Control/Ship_Example").texture = viewport_ships.get_texture()
-	ship = load("res://Ship.tscn").instance()
+	carga_nave()
+
+func mata_ship():
+	viewport_ships.get_children()[0].queue_free()
+
+func carga_nave():
+	path_nave_actual = naves[pos_naves_actual]
+	ship = load(path_nave_actual).instance()
+	if viewport_ships.get_child_count() > 0:
+		viewport_ships.get_children()[0].queue_free()
 	viewport_ships.add_child(ship)
-
-
+	
 func _on_Button_Next_pressed():
-	pass
+	pos_naves_actual += 1
+	get_node("Menu_Control/Ship_Control/Button_Previous").disabled = false
+	if pos_naves_actual == (naves.size() - 1):
+		get_node("Menu_Control/Ship_Control/Button_Next").disabled = true
+	elif pos_naves_actual > (naves.size() - 1):
+		pos_naves_actual -= 1
+	else :
+		get_node("Menu_Control/Ship_Control/Button_Next").disabled = false
+	carga_nave()
 
+func _on_Button_Previous_pressed():
+	pos_naves_actual -= 1
+	get_node("Menu_Control/Ship_Control/Button_Next").disabled = false
+	if pos_naves_actual == 0:
+		get_node("Menu_Control/Ship_Control/Button_Previous").disabled = true
+	elif pos_naves_actual < 0:
+		pos_naves_actual += 1
+	else :
+		get_node("Menu_Control/Ship_Control/Button_Previous").disabled = false
+	carga_nave()
 
 func _on_Button_Ship_Apply_pressed():
+	mata_ship()
 	get_node("Menu_Control/Main_Control").show()
 
 
 func cerrar_todo():
 	peer.close_connection()
 	udp.close()
-	server_instance.morir()
 
 
 func _on_Button_Volver_pressed():

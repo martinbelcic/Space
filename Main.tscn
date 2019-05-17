@@ -387,7 +387,6 @@ margin_bottom = 578.782
 text = "Cancel"
 
 [node name="Ship_Control" type="Control" parent="Menu_Control"]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -420,6 +419,7 @@ margin_top = 600.0
 margin_right = 622.0
 margin_bottom = 816.0
 rect_scale = Vector2( 0.3, 0.3 )
+disabled = true
 icon = ExtResource( 29 )
 flat = true
 
@@ -563,29 +563,28 @@ margin_bottom = 600.0
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_3" to="." method="_on_Button_Level_1_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_4" to="." method="_on_Button_Level_1_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_Aux" to="." method="_on_Button_Level_Aux_pressed"]
-[connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="." method="_on_Button_Map_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="Menu_Control/Map_Control" method="_on_Button_Back_pressed"]
+[connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="." method="_on_Button_Map_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Sound" to="Menu_Control/Option_Control" method="_on_Button_Sound_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Music" to="Menu_Control/Option_Control" method="_on_Button_Music_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Vibration" to="Menu_Control/Option_Control" method="_on_Button_Vibration_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Controls" to="Menu_Control/Option_Control" method="_on_Button_Controls_pressed"]
-[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="." method="_on_Button_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="Menu_Control/Option_Control" method="_on_Button_Apply_pressed"]
-[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="." method="_on_Button_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="." method="_on_Button_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="Menu_Control/Option_Control" method="_on_Button_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="." method="_on_Button_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Keyboard" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Keyboard_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Joystick" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Joystick_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Celular" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Celular_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Apply" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Cancel" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Next" to="." method="_on_Button_Next_pressed"]
-[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Next" to="Menu_Control/Ship_Control" method="_on_Button_Next_pressed"]
-[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Previous" to="Menu_Control/Ship_Control" method="_on_Button_Previous_pressed"]
+[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Previous" to="." method="_on_Button_Previous_pressed"]
+[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="Menu_Control/Ship_Control" method="_on_Button_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="." method="_on_Button_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="." method="_on_Button_Ship_Cancel_pressed"]
-[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="Menu_Control/Ship_Control" method="_on_Button_Back_pressed"]
-[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Apply" to="." method="_on_Button_Ship_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Apply" to="Menu_Control/Ship_Control" method="_on_Button_Ship_Apply_pressed"]
+[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Apply" to="." method="_on_Button_Ship_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Server/ButtonSend" to="Menu_Control/Server/ButtonSend" method="_on_ButtonSend_pressed"]
 [connection signal="pressed" from="Menu_Control/Server/Button_Volver" to="." method="_on_Button_Volver_pressed"]
 [connection signal="pressed" from="Menu_Control/Server/Button_Volver" to="Menu_Control/Server" method="_on_Button_Volver_pressed"]
