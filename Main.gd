@@ -196,4 +196,5 @@ func level_finished():
 	get_node("Menu_Control/Map_Control").hide()
 	get_node("Menu_Control/Option_Control").hide()
 	get_node("Menu_Control/Ship_Control").hide()
+	#TODO: en lugar de llamar a show server, deberia mostrar si gano o no....
 	show_server()
