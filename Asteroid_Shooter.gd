@@ -13,7 +13,8 @@ func _ready():
 	fire_weapon()
 
 func _process(delta):
-	fire_weapon()
+	if randi()%10 == 5:
+		fire_weapon()
 
 
 func fire_weapon():

@@ -4,7 +4,7 @@ extends KinematicBody
 onready var canvas = get_node("CanvasShip/AnimationPlayer")
 var estado
 var estado_anterior = ""
-var SHIP_LIFE = 100
+var SHIP_LIFE = 165
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
