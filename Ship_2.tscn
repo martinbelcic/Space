@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Ship.gd" type="Script" id=1]
 [ext_resource path="res://ShipBody.gd" type="Script" id=2]
 [ext_resource path="res://Ships/ship2.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://Textures/Texture_2.tres" type="Material" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveDown"
@@ -87,7 +88,7 @@ script = ExtResource( 2 )
 [node name="CanvasShip" type="MeshInstance" parent="ShipBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
 mesh = ExtResource( 3 )
-material/0 = null
+material/0 = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ShipBody/CanvasShip"]
 anims/MoveDown = SubResource( 1 )
