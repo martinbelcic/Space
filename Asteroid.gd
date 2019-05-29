@@ -9,8 +9,8 @@ var timer = 0
 var hit_something = false
 
 func _ready():
-	var x = randi()%40 - 20
-	var y = randi()%40 - 20
+	var x = randi()%20 - 10
+	var y = randi()%20 - 10
 	set_translation(Vector3(x, y, -100))
 
 

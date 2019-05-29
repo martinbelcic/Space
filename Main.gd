@@ -190,7 +190,7 @@ func _on_Button_Level_Aux_pressed():
 	get_node("Menu_Control").hide()
 
 
-func level_finished():
+func level_finished(gano=false):
 	get_node("Menu_Control").show()
 	get_node("Menu_Control/Main_Control").hide()
 	get_node("Menu_Control/Map_Control").hide()

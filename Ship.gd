@@ -77,3 +77,7 @@ func get_ship_life():
 
 func is_dead():
 	return ship.SHIP_LIFE <= 0
+
+
+func get_score():
+	return ship.SCORE

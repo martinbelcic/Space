@@ -7,6 +7,7 @@ var viewport
 var MAIN
 var ship
 var MULT = 15 # esta porqueria sirve para hacer chanchadas con la vida
+var FINISH_SCORE = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,9 +34,12 @@ func set_ship(path):
 func  _process(delta):
 	if ship.is_dead() or get_node("Timer").time_left <= 0:
 		finish_level()
+	elif ship.get_score() >= FINISH_SCORE:
+		finish_level(true)
 	else:
 		update_ship_life()
 		update_time_label()
+		update_score()
 
 
 func update_ship_life():
@@ -53,6 +57,10 @@ func update_time_label():
 	get_node("Label_Time").text = str(get_node("Timer").time_left)
 
 
-func finish_level():
-	get_parent().level_finished()
+func update_score():
+	get_node("Label_Score").text = str(ship.get_score())
+
+
+func finish_level(gano=false):
+	get_parent().level_finished(gano)
 	queue_free()

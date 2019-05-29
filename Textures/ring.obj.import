@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/ring.obj-4fbaf9b890e14e1b72bca5ef3a90ec56.mesh"
+
+[deps]
+
+files=[ "res://.import/ring.obj-4fbaf9b890e14e1b72bca5ef3a90ec56.mesh" ]
+
+source_file="res://Textures/ring.obj"
+dest_files=[ "res://.import/ring.obj-4fbaf9b890e14e1b72bca5ef3a90ec56.mesh", "res://.import/ring.obj-4fbaf9b890e14e1b72bca5ef3a90ec56.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Images/Background/Backdrop.png" type="Texture" id=2]
@@ -46,6 +46,12 @@
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
 
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Font/ethnocentric rg.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+font_data = SubResource( 2 )
+
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 
@@ -79,17 +85,17 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Main_Control" type="Control" parent="Menu_Control"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Label_Titulo" type="Label" parent="Menu_Control/Main_Control"]
 visible = false
-margin_left = 459.142
-margin_top = 114.687
-margin_right = 550.142
-margin_bottom = 145.687
-text = "Fucking Titulo
+margin_left = 371.481
+margin_top = 182.868
+margin_right = 462.481
+margin_bottom = 213.868
+custom_fonts/font = SubResource( 3 )
+text = "hola
 "
 
 [node name="Title" type="Sprite" parent="Menu_Control/Main_Control"]
@@ -387,6 +393,7 @@ margin_bottom = 578.782
 text = "Cancel"
 
 [node name="Ship_Control" type="Control" parent="Menu_Control"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -563,8 +570,8 @@ margin_bottom = 600.0
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_3" to="." method="_on_Button_Level_1_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_4" to="." method="_on_Button_Level_1_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_Aux" to="." method="_on_Button_Level_Aux_pressed"]
-[connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="." method="_on_Button_Map_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="Menu_Control/Map_Control" method="_on_Button_Back_pressed"]
+[connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="." method="_on_Button_Map_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Sound" to="Menu_Control/Option_Control" method="_on_Button_Sound_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Music" to="Menu_Control/Option_Control" method="_on_Button_Music_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Vibration" to="Menu_Control/Option_Control" method="_on_Button_Vibration_pressed"]
