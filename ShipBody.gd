@@ -5,6 +5,7 @@ onready var canvas = get_node("CanvasShip/AnimationPlayer")
 var estado
 var estado_anterior = ""
 var SHIP_LIFE = 165
+var SCORE = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +15,7 @@ func _ready():
 func _process(delta):
 	var x = 0
 	var y = 0
-	var sensitivity = 2
+	var sensitivity = 100
 	if Input.is_action_pressed("ui_left"):
 		x = -sensitivity
 		canvas.play("MoveLeft")
@@ -65,3 +66,7 @@ func _on_CollisionCamera_body_entered(body):
 
 func asteroid_hit(damage, asteroid_global_transform):
 	SHIP_LIFE -= damage
+
+
+func paso_por_anillo():
+	SCORE += 1

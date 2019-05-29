@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Background_Level1.gd" type="Script" id=1]
 [ext_resource path="res://Images/Background/Backdrop.png" type="Texture" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Images/Background/stars.png" type="Texture" id=4]
 [ext_resource path="res://Font/ethnocentric rg it.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Images/Level/Clock_Icon.png" type="Texture" id=6]
-[ext_resource path="res://Images/Level/Health_Bar_Table.png" type="Texture" id=7]
-[ext_resource path="res://Images/Level/Health_Dot.png" type="Texture" id=8]
+[ext_resource path="res://Font/ethnocentric rg.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Images/Level/Health_Bar_Table.png" type="Texture" id=8]
+[ext_resource path="res://Images/Level/Health_Dot.png" type="Texture" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -15,6 +16,10 @@ blend_mode = 1
 [sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 7 )
 
 [node name="Background" type="Node2D"]
 script = ExtResource( 1 )
@@ -60,6 +65,7 @@ margin_bottom = 146.602
 uppercase = true
 
 [node name="Label_Time" type="Label" parent="."]
+editor/display_folded = true
 margin_left = 1600.0
 margin_top = 40.0
 margin_right = 1884.0
@@ -70,60 +76,67 @@ custom_fonts/font = SubResource( 2 )
 position = Vector2( -50, 20 )
 texture = ExtResource( 6 )
 
+[node name="Label_Score" type="Label" parent="."]
+margin_left = 1600.0
+margin_top = 80.0
+margin_right = 1900.0
+margin_bottom = 135.0
+custom_fonts/font = SubResource( 3 )
+
 [node name="Health_Bar_Table" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 215.404, 68.6133 )
 scale = Vector2( 0.745143, 0.776642 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Health_Dot1" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( -178.559, -0.0139999 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Health_Dot2" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( -149.309, -0.278694 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Health_Dot3" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( -120.269, -0.543388 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Health_Dot4" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( -90.7251, -0.288811 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Health_Dot5" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( -61.2006, 0.00210571 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Health_Dot6" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( -75.8974, 156.297 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 offset = Vector2( 44.5245, -156.586 )
 
 [node name="Health_Dot7" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( -46.6761, 156.297 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 offset = Vector2( 44.5245, -156.586 )
 
 [node name="Health_Dot8" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( -15.8095, 156.297 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 offset = Vector2( 44.5245, -156.586 )
 
 [node name="Health_Dot9" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( 13.7151, 156.297 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 offset = Vector2( 44.5245, -156.586 )
 
 [node name="Health_Dot10" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( 44.5817, 156.297 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 offset = Vector2( 44.5245, -156.586 )
 
 [node name="Health_Dot11" type="Sprite" parent="Health_Bar_Table"]
 position = Vector2( 75.4483, 156.297 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 offset = Vector2( 44.5245, -156.586 )
 
 [node name="Timer" type="Timer" parent="."]

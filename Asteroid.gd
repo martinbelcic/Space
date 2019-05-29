@@ -9,8 +9,8 @@ var timer = 0
 var hit_something = false
 
 func _ready():
-	var x = randi()%40 - 20
-	var y = randi()%40 - 20
+	var x = randi()%10 - 5
+	var y = randi()%10 - 5
 	set_translation(Vector3(x, y, -100))
 
 
@@ -20,9 +20,6 @@ func _physics_process(delta):
 	
 	if translation.z > 0:
 		morir()
-    #timer += delta
-    #if timer >= KILL_TIMER:
-     #   queue_free()
 
 
 func morir():
