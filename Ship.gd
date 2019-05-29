@@ -10,8 +10,7 @@ var estado_anterior = ""
 onready var camera = get_node("Camera")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(ship.translation)
-	print(get_viewport().size)
+	pass
 	#asi puedo cambiar la posicion de las paredes
 	# get_node("AreaCamera/CollisionCameraUp").global_translate(camera.project_position(Vector2(get_viewport().size.x/2, 0)))
 	# get_node("AreaCamera/CollisionCameraDown").global_translate(camera.project_position(Vector2(get_viewport().size.x/2, get_viewport().size.y*2)))

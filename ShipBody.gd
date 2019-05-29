@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	var x = 0
 	var y = 0
-	var sensitivity = 2
+	var sensitivity = 100
 	if Input.is_action_pressed("ui_left"):
 		x = -sensitivity
 		canvas.play("MoveLeft")

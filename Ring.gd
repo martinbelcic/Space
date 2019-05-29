@@ -7,8 +7,8 @@ var RING_SPEED = 70
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var x = randi()%20 - 10
-	var y = randi()%20 - 10
+	var x = randi()%10 - 5
+	var y = randi()%10 - 5
 	set_translation(Vector3(x, y, -100))
 	get_node("AnimationPlayer").play("Ring")
 
@@ -29,7 +29,6 @@ func morir():
 
 
 func _on_Area_body_entered(body):
-	print("entro por el anillo")
 	if body.is_in_group("Ship"):
 		body.paso_por_anillo()
 		queue_free()

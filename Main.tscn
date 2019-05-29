@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Images/Background/Backdrop.png" type="Texture" id=2]
@@ -42,6 +42,8 @@
 [ext_resource path="res://ButtonSend.gd" type="Script" id=40]
 [ext_resource path="res://Images/UI/Server Menu/Backward_BTN.png" type="Texture" id=41]
 [ext_resource path="res://LabelIP.gd" type="Script" id=42]
+[ext_resource path="res://Finish_Control.gd" type="Script" id=43]
+[ext_resource path="res://Font/ethnocentric rg it.ttf" type="DynamicFontData" id=44]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -51,6 +53,10 @@ font_path = "res://Font/ethnocentric rg.ttf"
 
 [sub_resource type="DynamicFont" id=3]
 font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 44 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -81,10 +87,13 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="Menu_Control" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Main_Control" type="Control" parent="Menu_Control"]
+editor/display_folded = true
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -562,6 +571,28 @@ visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 
+[node name="Finish_Control" type="Control" parent="Menu_Control"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 43 )
+
+[node name="Label_Status" type="Label" parent="Menu_Control/Finish_Control"]
+margin_left = 249.589
+margin_top = 143.881
+margin_right = 1745.59
+margin_bottom = 349.881
+custom_fonts/font = SubResource( 4 )
+
+[node name="Butto_Back_To_Map" type="Button" parent="Menu_Control/Finish_Control"]
+margin_left = 50.0
+margin_top = 950.0
+margin_right = 272.0
+margin_bottom = 1166.0
+rect_scale = Vector2( 0.3, 0.3 )
+icon = ExtResource( 13 )
+flat = true
+
 [connection signal="pressed" from="Menu_Control/Main_Control/Button_Start" to="." method="_on_Button_Start_pressed"]
 [connection signal="pressed" from="Menu_Control/Main_Control/Button_Ships" to="." method="_on_Button_Ships_pressed"]
 [connection signal="pressed" from="Menu_Control/Main_Control/Button_Options" to="." method="_on_Button_Options_pressed"]
@@ -570,16 +601,16 @@ margin_bottom = 600.0
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_3" to="." method="_on_Button_Level_1_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_4" to="." method="_on_Button_Level_1_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_Aux" to="." method="_on_Button_Level_Aux_pressed"]
-[connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="Menu_Control/Map_Control" method="_on_Button_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="." method="_on_Button_Map_Back_pressed"]
+[connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="Menu_Control/Map_Control" method="_on_Button_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Sound" to="Menu_Control/Option_Control" method="_on_Button_Sound_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Music" to="Menu_Control/Option_Control" method="_on_Button_Music_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Vibration" to="Menu_Control/Option_Control" method="_on_Button_Vibration_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Controls" to="Menu_Control/Option_Control" method="_on_Button_Controls_pressed"]
-[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="Menu_Control/Option_Control" method="_on_Button_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="." method="_on_Button_Apply_pressed"]
-[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="Menu_Control/Option_Control" method="_on_Button_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="Menu_Control/Option_Control" method="_on_Button_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="." method="_on_Button_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="Menu_Control/Option_Control" method="_on_Button_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Keyboard" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Keyboard_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Joystick" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Joystick_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Celular" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Celular_pressed"]
@@ -595,3 +626,5 @@ margin_bottom = 600.0
 [connection signal="pressed" from="Menu_Control/Server/ButtonSend" to="Menu_Control/Server/ButtonSend" method="_on_ButtonSend_pressed"]
 [connection signal="pressed" from="Menu_Control/Server/Button_Volver" to="." method="_on_Button_Volver_pressed"]
 [connection signal="pressed" from="Menu_Control/Server/Button_Volver" to="Menu_Control/Server" method="_on_Button_Volver_pressed"]
+[connection signal="pressed" from="Menu_Control/Finish_Control/Butto_Back_To_Map" to="." method="_on_Butto_Back_To_Map_pressed"]
+[connection signal="pressed" from="Menu_Control/Finish_Control/Butto_Back_To_Map" to="Menu_Control/Finish_Control" method="_on_Butto_Back_To_Map_pressed"]

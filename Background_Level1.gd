@@ -26,9 +26,9 @@ func add_child_viewport(node):
 
 
 func set_ship(path):
-	print(path)
 	ship = load(path).instance()
 	add_child_viewport(ship)
+	return ship.get_children()[0]
 
 
 func  _process(delta):

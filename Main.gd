@@ -16,12 +16,23 @@ var not_connected = false
 var naves = ["res://Ship_1.tscn","res://Ship_2.tscn","res://Ship_3.tscn"]
 var pos_naves_actual = 0
 var path_nave_actual = "res://Ship_1.tscn"
+var playing = false
+var limite = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	get_node("Menu_Control").show()
+	get_node("Menu_Control/Main_Control").show()
+	get_node("Menu_Control/Map_Control").hide()
+	get_node("Menu_Control/Option_Control").hide()
+	get_node("Menu_Control/Ship_Control").hide()
+	get_node("Menu_Control/Server").hide()
+	get_node("Menu_Control/Finish_Control").hide()
 
 
+#---------------------------------
+# Funciones del Servidor
+#---------------------------------
 func _process(delta):
 	if not_connected:
 		udp.set_dest_address("255.255.255.255", PORT)
@@ -32,7 +43,6 @@ func create_server():
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_server(PORT, 1)
 	get_tree().set_network_peer(peer)
-
 	peer.connect("peer_connected", self, "_peer_connected")
 	peer.connect("peer_disconnected", self, "_peer_disconnected")
 	server_instance.show_label("Esperando")
@@ -50,10 +60,21 @@ func _peer_connected(id):
 
 func _peer_disconnected(id):
   # text = text + "\nUser " + str(id) + " disconnected"
-	server_instance.show_label("Esperando")
 	not_connected = true
-	server_instance.hide_label("Conectado")
-	# server_instance.change_user_count("Total Users:" + str(get_tree().get_network_connected_peers().size()))
+	if not playing:
+		server_instance.show_label("Esperando")
+		server_instance.hide_label("Conectado")
+	else:
+		playing = false
+		level.queue_free()
+		cerrar_todo()
+		get_node("Menu_Control").show()
+		get_node("Menu_Control/Main_Control").hide()
+		get_node("Menu_Control/Map_Control").show()
+		get_node("Menu_Control/Option_Control").hide()
+		get_node("Menu_Control/Ship_Control").hide()
+		get_node("Menu_Control/Server").hide()
+		get_node("Menu_Control/Finish_Control").hide()
 
 
 func _on_packet_received(id,packet):
@@ -66,19 +87,54 @@ func _on_packet_received(id,packet):
 
 func register_player(id):
 	player = id
-	print(id)
-	# rpc_id(id, "enable_button_ready")
-	get_tree().multiplayer.send_bytes("Enable_Start_Button".to_ascii())
+	# print(id)
+	rpc_id(id, "enable_button_ready")
+	# get_tree().multiplayer.send_bytes("Enable_Start_Button".to_ascii())
 
 
 remote func empezar(id):
 	if id == player:
 		level = load("res://Background_Level1.tscn").instance()
 		add_child(level)
-		level.set_ship(path_nave_actual)
+		ship = level.set_ship(path_nave_actual)
 		get_node("Menu_Control").hide()
+		rpc_id(id, "can_send")
+		playing = true
 
 
+remote func mover_ship(id, acc):
+	var cadena
+	if id == player and playing:
+		if acc.x < -limite and acc.z >= -limite and acc.z <= limite:
+		# Moviendose a la izquierda
+			cadena = "Left"
+		elif acc.x > limite and acc.z >= -limite and acc.z <= limite:
+			cadena = "Right"
+		elif acc.z < -limite and acc.x >= -limite and acc.x <= limite:
+			cadena = "Down"
+		elif acc.z > limite and acc.x >= -limite and acc.x <= limite:
+			cadena = "Up"
+		else:
+			cadena = "Nothing"
+		ship.moverse(cadena)
+
+
+func show_server():
+	server_instance.show()
+	if not get_tree().is_network_server():
+		create_server()
+		not_connected = true
+	else:
+		rpc_id(player, "enable_button_ready")
+
+
+func cerrar_todo():
+	peer.close_connection()
+	udp.close()
+
+#------------------------------------
+#  Funciones de Control
+#------------------------------------
 func _on_Button_Options_pressed():
 	get_node("Menu_Control/Option_Control").show()
 	get_node("Menu_Control/Main_Control").hide()
@@ -98,16 +154,12 @@ func _on_Button_Start_pressed():
 func _on_Button_Buy_pressed():
 	get_node("Panel").hide()
 
-
+#-------------------------------------
+#  Niveles
+#-------------------------------------
 func _on_Button_Level_1_pressed():
 	get_node("Menu_Control/Map_Control").hide()
 	show_server()
-
-
-func show_server():
-	server_instance.show()
-	create_server()
-	not_connected = true
 
 
 func _on_Button_Cancel_pressed():
@@ -127,6 +179,9 @@ func _on_Button_Map_Back_pressed():
 	get_node("Menu_Control/Main_Control").show()
 
 
+#--------------------------------------------------------------
+#  Funciones de Menu Eleccion de Naves
+#--------------------------------------------------------------
 func inicia_ships():
 	viewport_ships = get_node("Menu_Control/Ship_Control/Viewport")
 	viewport_ships.set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
@@ -168,11 +223,7 @@ func _on_Button_Previous_pressed():
 func _on_Button_Ship_Apply_pressed():
 	mata_ship()
 	get_node("Menu_Control/Main_Control").show()
-
-
-func cerrar_todo():
-	peer.close_connection()
-	udp.close()
+#--------------------------------------------------------------
 
 
 func _on_Button_Volver_pressed():
@@ -191,10 +242,16 @@ func _on_Button_Level_Aux_pressed():
 
 
 func level_finished(gano=false):
+	playing = false
+	rpc_id(player, "finished")
 	get_node("Menu_Control").show()
 	get_node("Menu_Control/Main_Control").hide()
 	get_node("Menu_Control/Map_Control").hide()
 	get_node("Menu_Control/Option_Control").hide()
 	get_node("Menu_Control/Ship_Control").hide()
-	#TODO: en lugar de llamar a show server, deberia mostrar si gano o no....
-	show_server()
+	get_node("Menu_Control/Server").hide()
+	get_node("Menu_Control/Finish_Control").show()
+	get_node("Menu_Control/Finish_Control").set_label(gano)
+
+func _on_Butto_Back_To_Map_pressed():
+	get_node("Menu_Control/Map_Control").show()

@@ -13,7 +13,7 @@ emission = Color( 0.329412, 0.815686, 0.945098, 1 )
 emission_energy = 16.0
 emission_operator = 0
 emission_on_uv2 = false
-uv1_offset = Vector3( 0, 0.333447, 0 )
+uv1_offset = Vector3( 0, 0.71878, 0 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Ring"
