@@ -16,14 +16,19 @@ var udp = PacketPeerUDP.new()
 var udp_listen = PacketPeerUDP.new()
 var not_connected = false
 var naves = ["res://Ship_1.tscn","res://Ship_2.tscn","res://Ship_3.tscn"]
+var naves_bloquadas = [0, 1, 1]
+var naves_precios = [0, 50, 100]
 var pos_naves_actual = 0
-var path_nave_actual = "res://Ship_1.tscn"
+var path_nave_actual = naves[pos_naves_actual]
+var path_nave_seleccionada = path_nave_actual
 var playing = false
 var limite = 4
+var plata = 500
 var client_network_address = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("Menu_Control/Ship_Control/Label_Money").text = str(plata)
 	get_node("Menu_Control").show()
 	get_node("Menu_Control/Main_Control").show()
 	get_node("Menu_Control/Map_Control").hide()
@@ -112,7 +117,7 @@ remote func empezar(id):
 	if id == player:
 		level = load("res://Background_Level1.tscn").instance()
 		add_child(level)
-		ship = level.set_ship(path_nave_actual)
+		ship = level.set_ship(path_nave_seleccionada)
 		get_node("Menu_Control").hide()
 		rpc_id(id, "can_send")
 		playing = true
@@ -167,10 +172,6 @@ func _on_Button_Start_pressed():
 	get_node("Menu_Control/Map_Control").show()
 	get_node("Menu_Control/Main_Control").hide()
 
-
-func _on_Button_Buy_pressed():
-	get_node("Panel").hide()
-
 #-------------------------------------
 #  Niveles
 #-------------------------------------
@@ -179,12 +180,9 @@ func _on_Button_Level_1_pressed():
 	show_server()
 
 
-func _on_Button_Cancel_pressed():
-	get_node("Menu_Control/Main_Control").show()
-
-
 func _on_Button_Ship_Cancel_pressed():
 	mata_ship()
+	path_nave_actual = naves[0]
 	get_node("Menu_Control/Main_Control").show()
 
 
@@ -203,14 +201,19 @@ func inicia_ships():
 	viewport_ships = get_node("Menu_Control/Ship_Control/Viewport")
 	viewport_ships.set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
 	get_node("Menu_Control/Ship_Control/Ship_Example").texture = viewport_ships.get_texture()
-	carga_nave()
+	carga_nave(pos_naves_actual)
 
 func mata_ship():
 	viewport_ships.get_children()[0].queue_free()
 
-func carga_nave():
-	path_nave_actual = naves[pos_naves_actual]
+func carga_nave(pos):
+	path_nave_actual = naves[pos]
 	ship = load(path_nave_actual).instance()
+	if (naves_bloquadas[pos] == 1):
+		get_node("Menu_Control/Ship_Control/Sprite_Ship_Blocked").show()
+	else:
+		get_node("Menu_Control/Ship_Control/Sprite_Ship_Blocked").hide()
+	get_node("Menu_Control/Ship_Control/Label_Ship_Precio").text = str(naves_precios[pos_naves_actual])
 	if viewport_ships.get_child_count() > 0:
 		viewport_ships.get_children()[0].queue_free()
 	viewport_ships.add_child(ship)
@@ -224,7 +227,7 @@ func _on_Button_Next_pressed():
 		pos_naves_actual -= 1
 	else :
 		get_node("Menu_Control/Ship_Control/Button_Next").disabled = false
-	carga_nave()
+	carga_nave(pos_naves_actual)
 
 func _on_Button_Previous_pressed():
 	pos_naves_actual -= 1
@@ -235,11 +238,20 @@ func _on_Button_Previous_pressed():
 		pos_naves_actual += 1
 	else :
 		get_node("Menu_Control/Ship_Control/Button_Previous").disabled = false
-	carga_nave()
+	carga_nave(pos_naves_actual)
 
 func _on_Button_Ship_Apply_pressed():
 	mata_ship()
+	if (naves_bloquadas[pos_naves_actual] == 0):
+		path_nave_seleccionada = path_nave_actual
+	else:
+		path_nave_seleccionada = naves[0]
 	get_node("Menu_Control/Main_Control").show()
+
+func _on_Button_Buy_pressed():
+	naves_bloquadas[pos_naves_actual] = 0
+	carga_nave(pos_naves_actual)
+
 #--------------------------------------------------------------
 
 

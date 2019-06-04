@@ -20,6 +20,9 @@ func _ready():
 	get_node("Timer").set_one_shot(true)
 	get_node("Timer").start()
 
+func get_ship():
+	return ship.get_children()[0]
+
 
 func add_child_viewport(node):
 	get_node("Viewport").add_child(node)
