@@ -6,7 +6,7 @@ var is_weapon_enabled = true
 
 var bullet_scene = preload("Asteroid.tscn")
 var ring_scene = preload("res://Ring.tscn")
-
+var RINGS = 1
 
 func _ready():
 	fire_weapon()
@@ -34,7 +34,7 @@ func fire_rings():
 	var scene_root = get_tree().root.get_children()[0]
 	var x = randi()%10 - 5
 	var y = randi()%10 - 5
-	for x in range(3):
+	for x in range(RINGS):
 		ring = ring_scene.instance()
 		scene_root.add_child(ring)
 		ring.set_position(x, y)

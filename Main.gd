@@ -28,7 +28,7 @@ var client_network_address = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("Menu_Control/Ship_Control/Label_Money").text = str(plata)
+	get_node("Menu_Control/Label_Money").text = str(plata)
 	get_node("Menu_Control").show()
 	get_node("Menu_Control/Main_Control").show()
 	get_node("Menu_Control/Map_Control").hide()
@@ -249,7 +249,10 @@ func _on_Button_Ship_Apply_pressed():
 	get_node("Menu_Control/Main_Control").show()
 
 func _on_Button_Buy_pressed():
-	naves_bloquadas[pos_naves_actual] = 0
+	if (plata >= naves_precios[pos_naves_actual]):
+		naves_bloquadas[pos_naves_actual] = 0
+		plata = plata - naves_precios[pos_naves_actual]
+		get_node("Menu_Control/Label_Money").text = str(plata)
 	carga_nave(pos_naves_actual)
 
 #--------------------------------------------------------------
