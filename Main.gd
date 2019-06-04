@@ -23,11 +23,8 @@ var path_nave_actual = naves[pos_naves_actual]
 var path_nave_seleccionada = path_nave_actual
 var playing = false
 var limite = 4
-<<<<<<< HEAD
 var plata = 500
-=======
 var client_network_address = ""
->>>>>>> master
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
