@@ -4,6 +4,7 @@ extends Node
 # var a = 2
 # var b = "text" 
 var PORT = 4242
+var PORT_AUX = 4241
 onready var server_instance = get_node("Menu_Control/Server") 
 var ship
 var path_ship = "res://Ship_1.tscn"
@@ -12,12 +13,14 @@ var level
 var viewport_ships
 var peer
 var udp = PacketPeerUDP.new()
+var udp_listen = PacketPeerUDP.new()
 var not_connected = false
 var naves = ["res://Ship_1.tscn","res://Ship_2.tscn","res://Ship_3.tscn"]
 var pos_naves_actual = 0
 var path_nave_actual = "res://Ship_1.tscn"
 var playing = false
 var limite = 4
+var client_network_address = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,9 +37,21 @@ func _ready():
 # Funciones del Servidor
 #---------------------------------
 func _process(delta):
-	if not_connected:
-		udp.set_dest_address("255.255.255.255", PORT)
+	if not_connected and client_network_address != "":
+		udp.set_dest_address(client_network_address, PORT)
 		udp.put_packet(".gitignore".to_ascii())
+	elif udp_listen.is_listening() and udp_listen.get_available_packet_count() > 0:
+		var packet = udp_listen.get_packet()
+		if packet.get_string_from_ascii() == "no es un mega":
+			var IP_aux = udp_listen.get_packet_ip()
+			if IP_aux.is_valid_ip_address():
+				client_network_address = IP_aux
+				udp_listen.close()
+
+
+func start_udp():
+	udp_listen = PacketPeerUDP.new()
+	udp_listen.listen(PORT_AUX)
 
 
 func create_server():
@@ -47,6 +62,7 @@ func create_server():
 	peer.connect("peer_disconnected", self, "_peer_disconnected")
 	server_instance.show_label("Esperando")
 	get_tree().multiplayer.connect("network_peer_packet",self,"_on_packet_received")
+	start_udp()
 
 
 func _peer_connected(id):
@@ -105,14 +121,14 @@ remote func empezar(id):
 remote func mover_ship(id, acc):
 	var cadena
 	if id == player and playing:
-		if acc.x < -limite and acc.z >= -limite and acc.z <= limite:
+		if acc.x < -10 or acc.x < -limite and acc.z >= -limite and acc.z <= limite:
 		# Moviendose a la izquierda
 			cadena = "Left"
-		elif acc.x > limite and acc.z >= -limite and acc.z <= limite:
+		elif acc.x > 10 or acc.x > limite and acc.z >= -limite and acc.z <= limite:
 			cadena = "Right"
-		elif acc.z < -limite and acc.x >= -limite and acc.x <= limite:
+		elif acc.z < -10 or acc.z < -limite and acc.x >= -limite and acc.x <= limite:
 			cadena = "Down"
-		elif acc.z > limite and acc.x >= -limite and acc.x <= limite:
+		elif acc.z > 10 or acc.z > limite and acc.x >= -limite and acc.x <= limite:
 			cadena = "Up"
 		else:
 			cadena = "Nothing"
@@ -131,6 +147,7 @@ func show_server():
 func cerrar_todo():
 	peer.close_connection()
 	udp.close()
+	client_network_address = ""
 
 #------------------------------------
 #  Funciones de Control

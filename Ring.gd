@@ -7,9 +7,6 @@ var RING_SPEED = 70
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var x = randi()%10 - 5
-	var y = randi()%10 - 5
-	set_translation(Vector3(x, y, -100))
 	get_node("AnimationPlayer").play("Ring")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,6 +20,8 @@ func _physics_process(delta):
     #if timer >= KILL_TIMER:
      #   queue_free()
 
+func set_position(x,y):
+	set_translation(Vector3(x, y, -100))
 
 func morir():
 	queue_free()
