@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Images/Background/Backdrop.png" type="Texture" id=2]
@@ -36,14 +36,17 @@
 [ext_resource path="res://Images/UI/Ship Menu/Buttons/Close_BTN.png" type="Texture" id=34]
 [ext_resource path="res://Images/UI/Ship Menu/Buttons/Ok_BTN.png" type="Texture" id=35]
 [ext_resource path="res://Images/UI/Ship Menu/Title.png" type="Texture" id=36]
-[ext_resource path="res://Server.gd" type="Script" id=37]
-[ext_resource path="res://Images/UI/Server Menu/Conectado.png" type="Texture" id=38]
-[ext_resource path="res://Images/UI/Server Menu/Esperando.png" type="Texture" id=39]
-[ext_resource path="res://ButtonSend.gd" type="Script" id=40]
-[ext_resource path="res://Images/UI/Server Menu/Backward_BTN.png" type="Texture" id=41]
-[ext_resource path="res://LabelIP.gd" type="Script" id=42]
-[ext_resource path="res://Finish_Control.gd" type="Script" id=43]
-[ext_resource path="res://Font/ethnocentric rg it.ttf" type="DynamicFontData" id=44]
+[ext_resource path="res://Font/Dynamic_Font.tres" type="DynamicFont" id=37]
+[ext_resource path="res://Font/ethnocentric rg it.ttf" type="DynamicFontData" id=38]
+[ext_resource path="res://Textures/Texture_1_Specular.png" type="Texture" id=39]
+[ext_resource path="res://Images/UI/Ship Menu/Crystal_02.png" type="Texture" id=40]
+[ext_resource path="res://Server.gd" type="Script" id=41]
+[ext_resource path="res://Images/UI/Server Menu/Conectado.png" type="Texture" id=42]
+[ext_resource path="res://Images/UI/Server Menu/Esperando.png" type="Texture" id=43]
+[ext_resource path="res://ButtonSend.gd" type="Script" id=44]
+[ext_resource path="res://Images/UI/Server Menu/Backward_BTN.png" type="Texture" id=45]
+[ext_resource path="res://LabelIP.gd" type="Script" id=46]
+[ext_resource path="res://Finish_Control.gd" type="Script" id=47]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -54,15 +57,18 @@ font_path = "res://Font/ethnocentric rg.ttf"
 [sub_resource type="DynamicFont" id=3]
 font_data = SubResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 38 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 40
-font_data = ExtResource( 44 )
+font_data = ExtResource( 38 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 
 [node name="Main_Background" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Main_Background"]
 
@@ -81,13 +87,12 @@ centered = false
 
 [node name="Sprite_Stars" type="Sprite" parent="Main_Background/ParallaxBackground/ParallaxLayerStars"]
 material = SubResource( 1 )
-position = Vector2( -0.154663, 0 )
+position = Vector2( 3.85559, 5.30005 )
 scale = Vector2( 0.500867, 0.500867 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="Menu_Control" type="Control" parent="."]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -402,8 +407,6 @@ margin_bottom = 578.782
 text = "Cancel"
 
 [node name="Ship_Control" type="Control" parent="Menu_Control"]
-editor/display_folded = true
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 27 )
@@ -411,14 +414,6 @@ script = ExtResource( 27 )
 [node name="Viewport" type="Viewport" parent="Menu_Control/Ship_Control"]
 size = Vector2( 600, 600 )
 transparent_bg = true
-
-[node name="Label_Money" type="Label" parent="Menu_Control/Ship_Control"]
-visible = false
-margin_left = 465.045
-margin_top = 23.4415
-margin_right = 570.045
-margin_bottom = 87.4415
-text = "Money"
 
 [node name="Button_Next" type="Button" parent="Menu_Control/Ship_Control"]
 margin_left = 1500.0
@@ -504,10 +499,42 @@ texture = ExtResource( 36 )
 centered = false
 offset = Vector2( 650, 275 )
 
+[node name="Button_Buy" type="Button" parent="Menu_Control/Ship_Control"]
+margin_left = 884.399
+margin_top = 923.461
+margin_right = 1023.4
+margin_bottom = 972.461
+custom_fonts/font = ExtResource( 37 )
+text = "Comprar"
+
+[node name="Label_Ship_Precio" type="Label" parent="Menu_Control/Ship_Control"]
+margin_left = 931.926
+margin_top = 771.011
+margin_right = 971.926
+margin_bottom = 785.011
+custom_fonts/font = SubResource( 5 )
+
+[node name="Sprite_Ship_Blocked" type="Sprite" parent="Menu_Control/Ship_Control"]
+position = Vector2( 1097.95, 554.131 )
+scale = Vector2( 0.0443604, 0.0312201 )
+texture = ExtResource( 39 )
+
+[node name="Sprite_Money" type="Sprite" parent="Menu_Control/Ship_Control"]
+position = Vector2( 1464.42, 206.173 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 40 )
+
+[node name="Label_Money" type="Label" parent="Menu_Control/Ship_Control"]
+margin_left = 1552.0
+margin_top = 210.0
+margin_right = 1717.0
+margin_bottom = 249.0
+custom_fonts/font = ExtResource( 37 )
+
 [node name="Server" type="Control" parent="Menu_Control"]
 editor/display_folded = true
 visible = false
-script = ExtResource( 37 )
+script = ExtResource( 41 )
 
 [node name="LabelStatus" type="Label" parent="Menu_Control/Server"]
 visible = false
@@ -517,13 +544,14 @@ margin_right = 353.0
 margin_bottom = 59.0
 
 [node name="Conectado" type="Sprite" parent="Menu_Control/Server"]
+visible = false
 position = Vector2( 670, 200 )
-texture = ExtResource( 38 )
+texture = ExtResource( 42 )
 centered = false
 
 [node name="Esperando" type="Sprite" parent="Menu_Control/Server"]
 position = Vector2( 670, 200 )
-texture = ExtResource( 39 )
+texture = ExtResource( 43 )
 centered = false
 
 [node name="LabelUserCount" type="Label" parent="Menu_Control/Server"]
@@ -547,7 +575,7 @@ margin_top = 393.213
 margin_right = 361.672
 margin_bottom = 413.213
 text = "Send"
-script = ExtResource( 40 )
+script = ExtResource( 44 )
 
 [node name="Button_Volver" type="Button" parent="Menu_Control/Server"]
 margin_left = 50.0
@@ -555,7 +583,7 @@ margin_top = 950.0
 margin_right = 272.0
 margin_bottom = 1166.0
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 41 )
+icon = ExtResource( 45 )
 flat = true
 
 [node name="LabelIP" type="Label" parent="Menu_Control/Server"]
@@ -564,7 +592,7 @@ margin_left = 263.404
 margin_top = 177.219
 margin_right = 556.404
 margin_bottom = 191.219
-script = ExtResource( 42 )
+script = ExtResource( 46 )
 
 [node name="Panel" type="Panel" parent="Menu_Control/Server"]
 visible = false
@@ -572,17 +600,18 @@ margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="Finish_Control" type="Control" parent="Menu_Control"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 43 )
+script = ExtResource( 47 )
 
 [node name="Label_Status" type="Label" parent="Menu_Control/Finish_Control"]
 margin_left = 249.589
 margin_top = 143.881
 margin_right = 1745.59
 margin_bottom = 349.881
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 
 [node name="Butto_Back_To_Map" type="Button" parent="Menu_Control/Finish_Control"]
 margin_left = 50.0
@@ -618,11 +647,11 @@ flat = true
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Cancel" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Next" to="." method="_on_Button_Next_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Previous" to="." method="_on_Button_Previous_pressed"]
-[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="." method="_on_Button_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="." method="_on_Button_Ship_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="Menu_Control/Ship_Control" method="_on_Button_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Apply" to="." method="_on_Button_Ship_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Apply" to="Menu_Control/Ship_Control" method="_on_Button_Ship_Apply_pressed"]
+[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Buy" to="." method="_on_Button_Buy_pressed"]
 [connection signal="pressed" from="Menu_Control/Server/ButtonSend" to="Menu_Control/Server/ButtonSend" method="_on_ButtonSend_pressed"]
 [connection signal="pressed" from="Menu_Control/Server/Button_Volver" to="." method="_on_Button_Volver_pressed"]
 [connection signal="pressed" from="Menu_Control/Server/Button_Volver" to="Menu_Control/Server" method="_on_Button_Volver_pressed"]
