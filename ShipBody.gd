@@ -55,7 +55,7 @@ func moverse(movimiento):
 		elif estado != "Straight":
 			canvas.play(estado)
 	
-	print(estado_anterior + " " + estado)
+	# print(estado_anterior + " " + estado)
 	estado_anterior = estado
 	estado = ""
 

@@ -648,6 +648,7 @@ flat = true
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Next" to="." method="_on_Button_Next_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Previous" to="." method="_on_Button_Previous_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="." method="_on_Button_Ship_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="." method="_on_Button_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Cancel" to="Menu_Control/Ship_Control" method="_on_Button_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Apply" to="." method="_on_Button_Ship_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Ship_Control/Button_Ship_Apply" to="Menu_Control/Ship_Control" method="_on_Button_Ship_Apply_pressed"]

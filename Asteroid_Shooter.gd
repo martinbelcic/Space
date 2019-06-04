@@ -30,8 +30,12 @@ func fire_weapon():
 
 
 func fire_rings():
-	var ring = ring_scene.instance()
+	var ring
 	var scene_root = get_tree().root.get_children()[0]
-	
-	scene_root.add_child(ring)
-	ring.scale = Vector3(4, 4, 4)
+	var x = randi()%10 - 5
+	var y = randi()%10 - 5
+	for x in range(3):
+		ring = ring_scene.instance()
+		scene_root.add_child(ring)
+		ring.set_position(x, y)
+		ring.scale = Vector3(4, 4, 4)
