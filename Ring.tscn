@@ -10,22 +10,23 @@ albedo_color = Color( 0.368627, 0.886275, 0.972549, 1 )
 albedo_texture = ExtResource( 3 )
 emission_enabled = true
 emission = Color( 0.329412, 0.815686, 0.945098, 1 )
-emission_energy = 16.0
+emission_energy = 0.51
 emission_operator = 0
 emission_on_uv2 = false
-uv1_offset = Vector3( 0, 0.71878, 0 )
+uv1_offset = Vector3( 0, 0.353432, 0 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Ring"
+length = 0.5
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("MeshInstance:material/0:uv1_offset")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
