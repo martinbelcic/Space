@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Images/Background/Backdrop.png" type="Texture" id=2]
@@ -11,34 +11,34 @@
 [ext_resource path="res://Map_Control.gd" type="Script" id=9]
 [ext_resource path="res://Images/UI/Levels Menu/Title.png" type="Texture" id=10]
 [ext_resource path="res://Images/UI/Levels Menu/Level_Active.png" type="Texture" id=11]
-[ext_resource path="res://Images/UI/Levels Menu/Leve_Inactive.png" type="Texture" id=12]
-[ext_resource path="res://Images/UI/Levels Menu/Backward_BTN.png" type="Texture" id=13]
-[ext_resource path="res://Option_Control.gd" type="Script" id=14]
-[ext_resource path="res://Images/UI/Options Menu/Title.png" type="Texture" id=15]
-[ext_resource path="res://Images/UI/Options Menu/Inactive/Sound_BTN.png" type="Texture" id=16]
-[ext_resource path="res://Images/UI/Options Menu/Sound.png" type="Texture" id=17]
-[ext_resource path="res://Images/UI/Options Menu/Inactive/Music_BTN.png" type="Texture" id=18]
-[ext_resource path="res://Images/UI/Options Menu/Music.png" type="Texture" id=19]
-[ext_resource path="res://Images/UI/Options Menu/Inactive/Vibration_BTN.png" type="Texture" id=20]
-[ext_resource path="res://Images/UI/Options Menu/Vibration.png" type="Texture" id=21]
-[ext_resource path="res://Images/UI/Options Menu/Inactive/More_Games_BTN.png" type="Texture" id=22]
-[ext_resource path="res://Images/UI/Options Menu/Controls.png" type="Texture" id=23]
-[ext_resource path="res://Images/UI/Options Menu/Inactive/Ok_BTN.png" type="Texture" id=24]
-[ext_resource path="res://Images/UI/Options Menu/Inactive/Close_BTN.png" type="Texture" id=25]
-[ext_resource path="res://Control_Control.gd" type="Script" id=26]
-[ext_resource path="res://Ship_Control.gd" type="Script" id=27]
-[ext_resource path="res://Images/UI/Ship Menu/Buttons/Forward_BTN.png" type="Texture" id=28]
-[ext_resource path="res://Images/UI/Ship Menu/Buttons/Backward_BTN.png" type="Texture" id=29]
-[ext_resource path="res://Images/UI/Ship Menu/Buttons/Armor_Icon.png" type="Texture" id=30]
-[ext_resource path="res://Images/UI/Ship Menu/Buttons/Speed_Icon.png" type="Texture" id=31]
-[ext_resource path="res://Images/UI/Ship Menu/Buttons/HP_Icon.png" type="Texture" id=32]
-[ext_resource path="res://Images/UI/Ship Menu/Buttons/Damage_Icon.png" type="Texture" id=33]
-[ext_resource path="res://Images/UI/Ship Menu/Buttons/Close_BTN.png" type="Texture" id=34]
-[ext_resource path="res://Images/UI/Ship Menu/Buttons/Ok_BTN.png" type="Texture" id=35]
-[ext_resource path="res://Images/UI/Ship Menu/Title.png" type="Texture" id=36]
-[ext_resource path="res://Font/Dynamic_Font.tres" type="DynamicFont" id=37]
-[ext_resource path="res://Font/ethnocentric rg it.ttf" type="DynamicFontData" id=38]
-[ext_resource path="res://Textures/Texture_1_Specular.png" type="Texture" id=39]
+[ext_resource path="res://Images/UI/Levels Menu/Backward_BTN.png" type="Texture" id=12]
+[ext_resource path="res://Option_Control.gd" type="Script" id=13]
+[ext_resource path="res://Images/UI/Options Menu/Title.png" type="Texture" id=14]
+[ext_resource path="res://Images/UI/Options Menu/Inactive/Sound_BTN.png" type="Texture" id=15]
+[ext_resource path="res://Images/UI/Options Menu/Sound.png" type="Texture" id=16]
+[ext_resource path="res://Images/UI/Options Menu/Inactive/Music_BTN.png" type="Texture" id=17]
+[ext_resource path="res://Images/UI/Options Menu/Music.png" type="Texture" id=18]
+[ext_resource path="res://Images/UI/Options Menu/Inactive/Vibration_BTN.png" type="Texture" id=19]
+[ext_resource path="res://Images/UI/Options Menu/Vibration.png" type="Texture" id=20]
+[ext_resource path="res://Images/UI/Options Menu/Inactive/More_Games_BTN.png" type="Texture" id=21]
+[ext_resource path="res://Images/UI/Options Menu/Controls.png" type="Texture" id=22]
+[ext_resource path="res://Images/UI/Options Menu/Inactive/Ok_BTN.png" type="Texture" id=23]
+[ext_resource path="res://Images/UI/Options Menu/Inactive/Close_BTN.png" type="Texture" id=24]
+[ext_resource path="res://Control_Control.gd" type="Script" id=25]
+[ext_resource path="res://Ship_Control.gd" type="Script" id=26]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/Forward_BTN.png" type="Texture" id=27]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/Backward_BTN.png" type="Texture" id=28]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/Armor_Icon.png" type="Texture" id=29]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/Speed_Icon.png" type="Texture" id=30]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/HP_Icon.png" type="Texture" id=31]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/Damage_Icon.png" type="Texture" id=32]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/Close_BTN.png" type="Texture" id=33]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/Ok_BTN.png" type="Texture" id=34]
+[ext_resource path="res://Font/Dynamic_Font.tres" type="DynamicFont" id=35]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/Buy_BTN.png" type="Texture" id=36]
+[ext_resource path="res://Font/ethnocentric rg it.ttf" type="DynamicFontData" id=37]
+[ext_resource path="res://Images/UI/Ship Menu/Title.png" type="Texture" id=38]
+[ext_resource path="res://Images/UI/Ship Menu/Buttons/Lock.png" type="Texture" id=39]
 [ext_resource path="res://Server.gd" type="Script" id=40]
 [ext_resource path="res://Images/UI/Server Menu/Conectado.png" type="Texture" id=41]
 [ext_resource path="res://Images/UI/Server Menu/Esperando.png" type="Texture" id=42]
@@ -46,7 +46,17 @@
 [ext_resource path="res://Images/UI/Server Menu/Backward_BTN.png" type="Texture" id=44]
 [ext_resource path="res://LabelIP.gd" type="Script" id=45]
 [ext_resource path="res://Finish_Control.gd" type="Script" id=46]
-[ext_resource path="res://Images/UI/Ship Menu/Crystal_02.png" type="Texture" id=47]
+[ext_resource path="res://Images/UI/Shop Menu/Window.png" type="Texture" id=47]
+[ext_resource path="res://Shop_Panel.gd" type="Script" id=48]
+[ext_resource path="res://Images/UI/Shop Menu/Crystal_02.png" type="Texture" id=49]
+[ext_resource path="res://Images/UI/Shop Menu/Price_BTN_0.99.png" type="Texture" id=50]
+[ext_resource path="res://Images/UI/Shop Menu/Crystals.png" type="Texture" id=51]
+[ext_resource path="res://Images/UI/Shop Menu/Price_BTN_1.99.png" type="Texture" id=52]
+[ext_resource path="res://Images/UI/Shop Menu/Fuel.png" type="Texture" id=53]
+[ext_resource path="res://Images/UI/Shop Menu/Fuels.png" type="Texture" id=54]
+[ext_resource path="res://Images/UI/Shop Menu/Close_BTN.png" type="Texture" id=55]
+[ext_resource path="res://Images/UI/Ship Menu/Crystal_02.png" type="Texture" id=56]
+[ext_resource path="res://Images/UI/Fuel.png" type="Texture" id=57]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -59,17 +69,18 @@ font_data = SubResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
-font_data = ExtResource( 38 )
+font_data = ExtResource( 37 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 40
-font_data = ExtResource( 38 )
+font_data = ExtResource( 37 )
+
+[sub_resource type="ShaderMaterial" id=6]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 
 [node name="Main_Background" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Main_Background"]
 
@@ -99,6 +110,7 @@ margin_bottom = 40.0
 
 [node name="Main_Control" type="Control" parent="Menu_Control"]
 editor/display_folded = true
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -149,7 +161,6 @@ margin_right = 1025.36
 margin_bottom = 601.36
 
 [node name="Map_Control" type="Control" parent="Menu_Control"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 9 )
@@ -182,7 +193,7 @@ margin_top = 645.441
 margin_right = 1022.38
 margin_bottom = 748.441
 rect_scale = Vector2( 0.5, 0.5 )
-icon = ExtResource( 12 )
+icon = ExtResource( 11 )
 flat = true
 
 [node name="Button_Level_3" type="Button" parent="Menu_Control/Map_Control"]
@@ -191,7 +202,7 @@ margin_top = 503.705
 margin_right = 889.46
 margin_bottom = 606.705
 rect_scale = Vector2( 0.5, 0.5 )
-icon = ExtResource( 12 )
+icon = ExtResource( 11 )
 flat = true
 
 [node name="Button_Level_4" type="Button" parent="Menu_Control/Map_Control"]
@@ -200,7 +211,7 @@ margin_top = 623.796
 margin_right = 732.703
 margin_bottom = 726.796
 rect_scale = Vector2( 0.5, 0.5 )
-icon = ExtResource( 12 )
+icon = ExtResource( 11 )
 flat = true
 
 [node name="Button_Level_Aux" type="Button" parent="Menu_Control/Map_Control"]
@@ -219,7 +230,7 @@ margin_top = 950.0
 margin_right = 272.0
 margin_bottom = 1166.0
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 13 )
+icon = ExtResource( 12 )
 flat = true
 
 [node name="Panel" type="Panel" parent="Menu_Control/Map_Control"]
@@ -232,16 +243,15 @@ editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 
 [node name="Main_Option_Control" type="Control" parent="Menu_Control/Option_Control"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Title" type="Sprite" parent="Menu_Control/Option_Control/Main_Option_Control"]
 position = Vector2( 1000, 200 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 
 [node name="Label_Settings" type="Label" parent="Menu_Control/Option_Control/Main_Option_Control"]
 visible = false
@@ -259,12 +269,12 @@ margin_top = 600.0
 margin_right = 1422.0
 margin_bottom = 816.0
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 16 )
+icon = ExtResource( 15 )
 flat = true
 
 [node name="Sound" type="Sprite" parent="Menu_Control/Option_Control/Main_Option_Control/Button_Sound"]
 position = Vector2( 467.292, 86.2133 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 
 [node name="Label_Sound" type="Label" parent="Menu_Control/Option_Control/Main_Option_Control/Button_Sound"]
 visible = false
@@ -281,7 +291,7 @@ margin_top = 400.0
 margin_right = 1422.0
 margin_bottom = 616.0
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 18 )
+icon = ExtResource( 17 )
 flat = true
 
 [node name="Label_Music" type="Label" parent="Menu_Control/Option_Control/Main_Option_Control/Button_Music"]
@@ -295,7 +305,7 @@ text = "Music"
 
 [node name="Music" type="Sprite" parent="Menu_Control/Option_Control/Main_Option_Control/Button_Music"]
 position = Vector2( 472.919, 92.1133 )
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 
 [node name="Button_Vibration" type="Button" parent="Menu_Control/Option_Control/Main_Option_Control"]
 editor/display_folded = true
@@ -304,12 +314,12 @@ margin_top = 600.0
 margin_right = 822.0
 margin_bottom = 816.0
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 20 )
+icon = ExtResource( 19 )
 flat = true
 
 [node name="Vibration" type="Sprite" parent="Menu_Control/Option_Control/Main_Option_Control/Button_Vibration"]
 position = Vector2( 538.253, 105.582 )
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 
 [node name="Label_Vibration" type="Label" parent="Menu_Control/Option_Control/Main_Option_Control/Button_Vibration"]
 visible = false
@@ -328,13 +338,13 @@ margin_top = 400.0
 margin_right = 822.0
 margin_bottom = 616.0
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 22 )
+icon = ExtResource( 21 )
 flat = true
 
 [node name="Controls" type="Sprite" parent="Menu_Control/Option_Control/Main_Option_Control/Button_Controls"]
 position = Vector2( 585.259, 167.183 )
 scale = Vector2( 1.7903, 2.04731 )
-texture = ExtResource( 23 )
+texture = ExtResource( 22 )
 
 [node name="Button_Apply" type="Button" parent="Menu_Control/Option_Control/Main_Option_Control"]
 margin_left = 600.0
@@ -342,7 +352,7 @@ margin_top = 900.0
 margin_right = 822.0
 margin_bottom = 1116.0
 rect_scale = Vector2( 0.5, 0.5 )
-icon = ExtResource( 24 )
+icon = ExtResource( 23 )
 flat = true
 
 [node name="Button_Cancel" type="Button" parent="Menu_Control/Option_Control/Main_Option_Control"]
@@ -351,7 +361,7 @@ margin_top = 900.0
 margin_right = 1422.0
 margin_bottom = 1116.0
 rect_scale = Vector2( 0.5, 0.5 )
-icon = ExtResource( 25 )
+icon = ExtResource( 24 )
 flat = true
 
 [node name="Panel" type="Panel" parent="Menu_Control/Option_Control/Main_Option_Control"]
@@ -361,11 +371,10 @@ margin_right = 1021.62
 margin_bottom = 600.0
 
 [node name="Control_Control" type="Control" parent="Menu_Control/Option_Control"]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 26 )
+script = ExtResource( 25 )
 
 [node name="Panel" type="Panel" parent="Menu_Control/Option_Control/Control_Control"]
 margin_right = 1024.0
@@ -411,7 +420,7 @@ editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 27 )
+script = ExtResource( 26 )
 
 [node name="Viewport" type="Viewport" parent="Menu_Control/Ship_Control"]
 size = Vector2( 600, 600 )
@@ -423,7 +432,7 @@ margin_top = 600.0
 margin_right = 1722.0
 margin_bottom = 816.0
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 28 )
+icon = ExtResource( 27 )
 flat = true
 
 [node name="Button_Previous" type="Button" parent="Menu_Control/Ship_Control"]
@@ -433,7 +442,7 @@ margin_right = 622.0
 margin_bottom = 816.0
 rect_scale = Vector2( 0.3, 0.3 )
 disabled = true
-icon = ExtResource( 29 )
+icon = ExtResource( 28 )
 flat = true
 
 [node name="Button_Armour" type="Button" parent="Menu_Control/Ship_Control"]
@@ -442,7 +451,7 @@ margin_top = 300.0
 margin_right = 677.0
 margin_bottom = 367.0
 rect_pivot_offset = Vector2( 68.6755, 19.2006 )
-icon = ExtResource( 30 )
+icon = ExtResource( 29 )
 flat = true
 
 [node name="Button_Speed" type="Button" parent="Menu_Control/Ship_Control"]
@@ -450,7 +459,7 @@ margin_left = 800.0
 margin_top = 300.0
 margin_right = 870.0
 margin_bottom = 370.0
-icon = ExtResource( 31 )
+icon = ExtResource( 30 )
 flat = true
 
 [node name="Button_Shield" type="Button" parent="Menu_Control/Ship_Control"]
@@ -458,7 +467,7 @@ margin_left = 1000.0
 margin_top = 300.0
 margin_right = 1077.0
 margin_bottom = 361.0
-icon = ExtResource( 32 )
+icon = ExtResource( 31 )
 flat = true
 
 [node name="Button_Damage" type="Button" parent="Menu_Control/Ship_Control"]
@@ -466,7 +475,7 @@ margin_left = 1200.0
 margin_top = 300.0
 margin_right = 1277.0
 margin_bottom = 371.0
-icon = ExtResource( 33 )
+icon = ExtResource( 32 )
 flat = true
 
 [node name="Button_Ship_Cancel" type="Button" parent="Menu_Control/Ship_Control"]
@@ -475,7 +484,7 @@ margin_top = 900.0
 margin_right = 1422.0
 margin_bottom = 1116.0
 rect_scale = Vector2( 0.5, 0.5 )
-icon = ExtResource( 34 )
+icon = ExtResource( 33 )
 flat = true
 
 [node name="Button_Ship_Apply" type="Button" parent="Menu_Control/Ship_Control"]
@@ -484,7 +493,16 @@ margin_top = 900.0
 margin_right = 822.0
 margin_bottom = 1116.0
 rect_scale = Vector2( 0.5, 0.5 )
-icon = ExtResource( 35 )
+icon = ExtResource( 34 )
+flat = true
+
+[node name="Button_Buy" type="Button" parent="Menu_Control/Ship_Control"]
+margin_left = 825.0
+margin_top = 900.0
+margin_right = 1098.0
+margin_bottom = 1007.0
+custom_fonts/font = ExtResource( 35 )
+icon = ExtResource( 36 )
 flat = true
 
 [node name="Panel" type="Panel" parent="Menu_Control/Ship_Control"]
@@ -493,32 +511,24 @@ margin_left = 1.36035
 margin_right = 1025.36
 margin_bottom = 600.0
 
+[node name="Label_Ship_Precio" type="Label" parent="Menu_Control/Ship_Control"]
+margin_left = 931.926
+margin_top = 771.011
+margin_right = 971.926
+margin_bottom = 801.011
+custom_fonts/font = SubResource( 4 )
+
 [node name="Title" type="Sprite" parent="Menu_Control/Ship_Control"]
 position = Vector2( 1000, 100 )
-texture = ExtResource( 36 )
+texture = ExtResource( 38 )
 
 [node name="Ship_Example" type="Sprite" parent="Menu_Control/Ship_Control"]
 centered = false
 offset = Vector2( 650, 275 )
 
-[node name="Button_Buy" type="Button" parent="Menu_Control/Ship_Control"]
-margin_left = 884.399
-margin_top = 923.461
-margin_right = 1023.4
-margin_bottom = 972.461
-custom_fonts/font = ExtResource( 37 )
-text = "Comprar"
-
-[node name="Label_Ship_Precio" type="Label" parent="Menu_Control/Ship_Control"]
-margin_left = 931.926
-margin_top = 771.011
-margin_right = 971.926
-margin_bottom = 785.011
-custom_fonts/font = SubResource( 4 )
-
 [node name="Sprite_Ship_Blocked" type="Sprite" parent="Menu_Control/Ship_Control"]
 position = Vector2( 1097.95, 554.131 )
-scale = Vector2( 0.0443604, 0.0312201 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 39 )
 
 [node name="Server" type="Control" parent="Menu_Control"]
@@ -609,28 +619,161 @@ margin_top = 950.0
 margin_right = 272.0
 margin_bottom = 1166.0
 rect_scale = Vector2( 0.3, 0.3 )
-icon = ExtResource( 13 )
+icon = ExtResource( 12 )
 flat = true
 
-[node name="Sprite_Money" type="Sprite" parent="Menu_Control"]
-position = Vector2( 1825, 200 )
-scale = Vector2( 0.25, 0.25 )
+[node name="Shop_Panel" type="Sprite" parent="Menu_Control"]
+visible = false
+material = SubResource( 6 )
+position = Vector2( 951.73, 549.768 )
+scale = Vector2( 0.73921, 0.724472 )
 texture = ExtResource( 47 )
+script = ExtResource( 48 )
+
+[node name="Title_Label" type="Label" parent="Menu_Control/Shop_Panel"]
+margin_left = -254.0
+margin_top = -702.0
+margin_right = -151.0
+margin_bottom = -635.0
+rect_scale = Vector2( 5, 5 )
+custom_fonts/font = ExtResource( 35 )
+text = "Shop
+"
+
+[node name="Crystal_Sprite" type="Sprite" parent="Menu_Control/Shop_Panel"]
+position = Vector2( -250, -350 )
+texture = ExtResource( 49 )
+
+[node name="Crystal_Label" type="Label" parent="Menu_Control/Shop_Panel"]
+margin_left = -300.0
+margin_top = -160.0
+margin_right = -235.0
+margin_bottom = -126.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 35 )
+text = "100"
+
+[node name="Crystal_Button" type="Button" parent="Menu_Control/Shop_Panel"]
+margin_left = -380.0
+margin_top = -90.0
+margin_right = -107.0
+margin_bottom = 17.0
+icon = ExtResource( 50 )
+flat = true
+
+[node name="Crystal_Sprite2" type="Sprite" parent="Menu_Control/Shop_Panel"]
+position = Vector2( 250, -350 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 51 )
+
+[node name="Crystal_Label2" type="Label" parent="Menu_Control/Shop_Panel"]
+margin_left = 176.713
+margin_top = -160.0
+margin_right = 260.713
+margin_bottom = -126.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 35 )
+text = "1000"
+
+[node name="Crystal_Button2" type="Button" parent="Menu_Control/Shop_Panel"]
+margin_left = 120.0
+margin_top = 440.0
+margin_right = 393.0
+margin_bottom = 547.0
+icon = ExtResource( 52 )
+flat = true
+
+[node name="Crystal_Sprite3" type="Sprite" parent="Menu_Control/Shop_Panel"]
+position = Vector2( -250, 175 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 53 )
+
+[node name="Crystal_Label3" type="Label" parent="Menu_Control/Shop_Panel"]
+margin_left = -260.985
+margin_top = 335.072
+margin_right = -195.985
+margin_bottom = 369.072
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 35 )
+text = "1"
+
+[node name="Crystal_Button3" type="Button" parent="Menu_Control/Shop_Panel"]
+margin_left = -380.0
+margin_top = 440.0
+margin_right = -107.0
+margin_bottom = 547.0
+icon = ExtResource( 50 )
+flat = true
+
+[node name="Crystal_Sprite4" type="Sprite" parent="Menu_Control/Shop_Panel"]
+position = Vector2( 250, 175 )
+scale = Vector2( 0.75, 1 )
+texture = ExtResource( 54 )
+
+[node name="Crystal_Label4" type="Label" parent="Menu_Control/Shop_Panel"]
+margin_left = 210.0
+margin_top = 350.0
+margin_right = 275.0
+margin_bottom = 384.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 35 )
+text = "10"
+
+[node name="Crystal_Button4" type="Button" parent="Menu_Control/Shop_Panel"]
+margin_left = 120.0
+margin_top = -85.0
+margin_right = 393.0
+margin_bottom = 22.0
+icon = ExtResource( 52 )
+flat = true
+
+[node name="Exit_Button" type="Button" parent="Menu_Control/Shop_Panel"]
+margin_left = 301.233
+margin_top = -677.89
+margin_right = 523.233
+margin_bottom = -461.89
+rect_scale = Vector2( 0.5, 0.5 )
+icon = ExtResource( 55 )
+flat = true
+
+[node name="Button_Money" type="Button" parent="Menu_Control"]
+margin_left = 1800.0
+margin_top = 150.0
+margin_right = 2083.0
+margin_bottom = 456.0
+rect_scale = Vector2( 0.25, 0.25 )
+icon = ExtResource( 56 )
+flat = true
 
 [node name="Label_Money" type="Label" parent="Menu_Control"]
 margin_left = 1700.0
 margin_top = 179.643
 margin_right = 1865.0
 margin_bottom = 218.643
-custom_fonts/font = ExtResource( 37 )
+custom_fonts/font = ExtResource( 35 )
+
+[node name="Button_Fuel" type="Button" parent="Menu_Control"]
+margin_left = 1775.0
+margin_top = 250.0
+margin_right = 1899.0
+margin_bottom = 374.0
+icon = ExtResource( 57 )
+flat = true
+
+[node name="Label_Fuel" type="Label" parent="Menu_Control"]
+margin_left = 1700.0
+margin_top = 280.0
+margin_right = 1865.0
+margin_bottom = 319.0
+custom_fonts/font = ExtResource( 35 )
 
 [connection signal="pressed" from="Menu_Control/Main_Control/Button_Start" to="." method="_on_Button_Start_pressed"]
 [connection signal="pressed" from="Menu_Control/Main_Control/Button_Ships" to="." method="_on_Button_Ships_pressed"]
 [connection signal="pressed" from="Menu_Control/Main_Control/Button_Options" to="." method="_on_Button_Options_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_1" to="." method="_on_Button_Level_1_pressed"]
-[connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_2" to="." method="_on_Button_Level_1_pressed"]
-[connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_3" to="." method="_on_Button_Level_1_pressed"]
-[connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_4" to="." method="_on_Button_Level_1_pressed"]
+[connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_2" to="." method="_on_Button_Level_2_pressed"]
+[connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_3" to="." method="_on_Button_Level_3_pressed"]
+[connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_4" to="." method="_on_Button_Level_4_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Level_Aux" to="." method="_on_Button_Level_Aux_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="." method="_on_Button_Map_Back_pressed"]
 [connection signal="pressed" from="Menu_Control/Map_Control/Button_Map_Back" to="Menu_Control/Map_Control" method="_on_Button_Back_pressed"]
@@ -638,10 +781,10 @@ custom_fonts/font = ExtResource( 37 )
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Music" to="Menu_Control/Option_Control" method="_on_Button_Music_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Vibration" to="Menu_Control/Option_Control" method="_on_Button_Vibration_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Controls" to="Menu_Control/Option_Control" method="_on_Button_Controls_pressed"]
-[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="." method="_on_Button_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="Menu_Control/Option_Control" method="_on_Button_Apply_pressed"]
-[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="." method="_on_Button_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Apply" to="." method="_on_Button_Apply_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="Menu_Control/Option_Control" method="_on_Button_Cancel_pressed"]
+[connection signal="pressed" from="Menu_Control/Option_Control/Main_Option_Control/Button_Cancel" to="." method="_on_Button_Cancel_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Keyboard" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Keyboard_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Joystick" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Joystick_pressed"]
 [connection signal="pressed" from="Menu_Control/Option_Control/Control_Control/Panel/Button_Celular" to="Menu_Control/Option_Control/Control_Control" method="_on_Button_Celular_pressed"]
@@ -660,3 +803,6 @@ custom_fonts/font = ExtResource( 37 )
 [connection signal="pressed" from="Menu_Control/Server/Button_Volver" to="Menu_Control/Server" method="_on_Button_Volver_pressed"]
 [connection signal="pressed" from="Menu_Control/Finish_Control/Butto_Back_To_Map" to="." method="_on_Butto_Back_To_Map_pressed"]
 [connection signal="pressed" from="Menu_Control/Finish_Control/Butto_Back_To_Map" to="Menu_Control/Finish_Control" method="_on_Butto_Back_To_Map_pressed"]
+[connection signal="pressed" from="Menu_Control/Shop_Panel/Exit_Button" to="Menu_Control/Shop_Panel" method="_on_Exit_Button_pressed"]
+[connection signal="pressed" from="Menu_Control/Button_Money" to="." method="_on_Button_Money_pressed"]
+[connection signal="pressed" from="Menu_Control/Button_Fuel" to="." method="_on_Button_Fuel_pressed"]

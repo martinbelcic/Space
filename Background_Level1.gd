@@ -7,7 +7,7 @@ var viewport
 var MAIN
 var ship
 var MULT = 15 # esta porqueria sirve para hacer chanchadas con la vida
-var FINISH_SCORE = 15
+var FINISH_SCORE = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,3 +67,6 @@ func update_score():
 func finish_level(gano=false):
 	get_parent().level_finished(gano)
 	queue_free()
+
+func set_rings(cant):
+	FINISH_SCORE = cant

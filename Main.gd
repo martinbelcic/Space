@@ -24,11 +24,14 @@ var path_nave_seleccionada = path_nave_actual
 var playing = false
 var limite = 4
 var plata = 500
+var fuel = 5
 var client_network_address = ""
+var rings = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("Menu_Control/Label_Money").text = str(plata)
+	get_node("Menu_Control/Label_Fuel").text = str(fuel)
 	get_node("Menu_Control").show()
 	get_node("Menu_Control/Main_Control").show()
 	get_node("Menu_Control/Map_Control").hide()
@@ -96,6 +99,7 @@ func _peer_disconnected(id):
 		get_node("Menu_Control/Ship_Control").hide()
 		get_node("Menu_Control/Server").hide()
 		get_node("Menu_Control/Finish_Control").hide()
+		get_node("Menu_Control/Shop_Control").hide()
 
 
 func _on_packet_received(id,packet):
@@ -117,6 +121,9 @@ remote func empezar(id):
 	if id == player:
 		level = load("res://Background_Level1.tscn").instance()
 		add_child(level)
+		level.set_rings(rings)
+		fuel -= 1
+		get_node("Menu_Control/Label_Fuel").text = str(fuel)
 		ship = level.set_ship(path_nave_seleccionada)
 		get_node("Menu_Control").hide()
 		rpc_id(id, "can_send")
@@ -176,8 +183,31 @@ func _on_Button_Start_pressed():
 #  Niveles
 #-------------------------------------
 func _on_Button_Level_1_pressed():
-	get_node("Menu_Control/Map_Control").hide()
-	show_server()
+	if fuel > 0:
+		get_node("Menu_Control/Map_Control").hide()
+		rings = 5
+		show_server()
+
+
+func _on_Button_Level_2_pressed():
+	if fuel > 0:
+		get_node("Menu_Control/Map_Control").hide()
+		rings = 10
+		show_server()
+
+
+func _on_Button_Level_3_pressed():
+	if fuel > 0:
+		get_node("Menu_Control/Map_Control").hide()
+		rings = 15
+		show_server()
+
+
+func _on_Button_Level_4_pressed():
+	if fuel > 0:
+		get_node("Menu_Control/Map_Control").hide()
+		rings = 20
+		show_server()
 
 
 func _on_Button_Ship_Cancel_pressed():
@@ -249,7 +279,7 @@ func _on_Button_Ship_Apply_pressed():
 	get_node("Menu_Control/Main_Control").show()
 
 func _on_Button_Buy_pressed():
-	if (plata >= naves_precios[pos_naves_actual]):
+	if (plata >= naves_precios[pos_naves_actual] and naves_bloquadas[pos_naves_actual] != 0):
 		naves_bloquadas[pos_naves_actual] = 0
 		plata = plata - naves_precios[pos_naves_actual]
 		get_node("Menu_Control/Label_Money").text = str(plata)
@@ -284,6 +314,24 @@ func level_finished(gano=false):
 	get_node("Menu_Control/Server").hide()
 	get_node("Menu_Control/Finish_Control").show()
 	get_node("Menu_Control/Finish_Control").set_label(gano)
+	if gano:
+		plata += 50
+		get_node("Menu_Control/Label_Money").text = str(plata)
+		get_node("Menu_Control/Map_Control").enable_level((rings/5)+1)
+
 
 func _on_Butto_Back_To_Map_pressed():
 	get_node("Menu_Control/Map_Control").show()
+
+
+func _on_Button_Cancel_pressed():
+	get_node("Menu_Control/Main_Control").show()
+
+
+
+func _on_Button_Money_pressed():
+	get_node("Menu_Control/Shop_Panel").show()
+
+
+func _on_Button_Fuel_pressed():
+	get_node("Menu_Control/Shop_Panel").show()

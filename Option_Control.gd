@@ -34,4 +34,4 @@ func _on_Button_Sound_pressed():
 
 
 func _on_Button_Controls_pressed():
-	get_node("Control_Control").show()
+	pass
